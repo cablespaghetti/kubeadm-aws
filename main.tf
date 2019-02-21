@@ -30,6 +30,14 @@ provider "aws" {
   secret_key = "${var.secret_key}"
   region     = "${var.region}"
 }
+terraform {
+  backend "s3" {
+  encrypt = "true"
+  bucket  = "zulnowski-state"
+  key     = "k8s-state"
+  region = "eu-west-1"
+  }
+}
 
 resource "aws_vpc" "main" {
   cidr_block = "10.0.0.0/16"
@@ -74,7 +82,7 @@ resource "aws_route_table_association" "public" {
 resource "aws_subnet" "public" {
   vpc_id = "${aws_vpc.main.id}"
   cidr_block = "10.0.100.0/24"
-  availability_zone = "${var.region}${var.az}"
+  availability_zone = "${var.region}a"
   map_public_ip_on_launch = true
 
   tags {

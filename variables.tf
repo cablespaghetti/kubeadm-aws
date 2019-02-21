@@ -48,12 +48,8 @@ variable "region" {
   default = "us-east-1"
 }
 
-variable "az" {
-  default = "a"
-}
-
 variable "kubernetes-version" {
-  default = "1.13.2"
+  default = "1.13.1"
   description = "Which version of Kubernetes to install"
 }
 

@@ -2,3 +2,5 @@
 *.backup
 .terraform
 token.txt
+terraform.tfvars
+*.swp
