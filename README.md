@@ -10,7 +10,7 @@ Current features:
 * Completely automated provisioning through Terraform and Bash.
 * Variables for many things including number of workers (provisioned using an auto-scaling group) and EC2 instance type.
 * Helm Tiller (currently v2.12.0)
-* [External DNS](https://github.com/kubernetes-incubator/external-dns) and [Nginx Ingess](https://github.com/kubernetes/ingress-nginx) as a cheap ELB alternative, with [Cert Manager](https://github.com/jetstack/cert-manager) for TLS certificates via Let's Encrypt.
+* [External DNS](https://github.com/kubernetes-incubator/external-dns) and [Nginx Ingress](https://github.com/kubernetes/ingress-nginx) as a cheap ELB alternative, with [Cert Manager](https://github.com/jetstack/cert-manager) for TLS certificates via Let's Encrypt.
 * Auto Scaling of worker nodes, if you enable the [Cluster AutoScaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler).
 * Persistent Volumes using GP2 storage on EBS.
 
