@@ -111,6 +111,11 @@ variable "backup-enabled" {
   description = "Whether or not the automatic S3 backup should be enabled. (1 for enabled, 0 for disabled)"
 }
 
+variable "versioned-bucket" {
+  default = "true"
+  description = "Whether or not the S3 bucket should be versioned."
+}
+
 variable "backup-cron-expression" {
   default = "*/15 * * * *"
   description = "A cron expression to use for the automatic etcd backups."

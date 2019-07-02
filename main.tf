@@ -166,18 +166,23 @@ resource "aws_s3_bucket" "s3-bucket" {
   bucket_prefix   = "${var.cluster-name}"
   force_destroy   = "true"
 
-  tags {
-    Environment = "${var.cluster-name}"
+  versioning {
+    enabled = "${var.versioned-bucket}"
   }
 
   lifecycle_rule {
-    id      = "etcd-backups"
-    prefix  = "etcd-backups/"
     enabled = true
+    id      = "bucket"
+    prefix  = ""
+    abort_incomplete_multipart_upload_days = 1
 
-    expiration {
+    noncurrent_version_expiration {
       days = 7
     }
+  }
+
+  tags {
+    Environment = "${var.cluster-name}"
   }
 }
 
@@ -523,4 +528,3 @@ resource "aws_autoscaling_group" "worker" {
     propagate_at_launch = true
   }
 }
-

@@ -44,13 +44,14 @@ Optional Variables:
 * `cluster-name` - Used for naming the created AWS resources (k8s by default)
 * `backup-enabled` - Set to "0" to disable the automatic etcd backups (1 by default)
 * `backup-cron-expression` - A cron expression to use for the automatic etcd backups (`*/15 * * * *` by default)
+* `versioned-bucket` - Set to "false" to only keep the most recent etcd backup (true by default)
 * `external-dns-enabled` - Set to "0" to disable ExternalDNS (1 by default) - Existing Route 53 Domain required
 * `nginx-ingress-enabled` - Set to "1" to enable Nginx Ingress (0 by default)
 * `nginx-ingress-domain` - The DNS name to map to Nginx Ingress using External DNS ("" by default)
 * `cert-manager-enabled` - Set to "1" to enable Cert Manager (0 by default)
 * `cert-manager-email` - The email address to use for Let's Encrypt certificate requests ("" by default)
 * `cluster-autoscaler-enabled` - Set to "1" to enable the cluster autoscaler (0 by default)
-* `k8stoken` - Override the automatically generated cluster bootstrap token
+* `k8stoken` - Override the automatically generated cluster bootstrap token. Can also be generated with `kubeadm token generate`.
 
 ### Examples
 * [Nginx deployment](examples/nginx.yaml)
@@ -68,4 +69,3 @@ I've written this as a personal project and will do my best to maintain it to a 
 ### Note about the license
 
 I am not associated with UPMC Enterprises, but because this project started off as a fork of their code I am required to leave their license in place. However this is still Open Source and so you are free to do more-or-less whatever you want with the contents of this repository.
-
